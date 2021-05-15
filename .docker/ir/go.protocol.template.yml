@@ -28,7 +28,7 @@ ProtocolConfiguration:
   #@ end
   VerifyBlocks: true
   VerifyTransactions: true
-  MaxTransactionsPerBlock: 65534
+  MaxTransactionsPerBlock: 50
   MaxBlockSize: 16777216
 
 ApplicationConfiguration:
