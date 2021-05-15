@@ -54,7 +54,7 @@ ApplicationConfiguration:
   ProtoTickInterval: 2
   PingInterval: 30
   PingTimeout: 90
-  MaxPeers: 5
+  MaxPeers: 10
   AttemptConnPeers: 5
   #@ if data.values.nodes_info[i].node_name == "single":
   MinPeers: 0

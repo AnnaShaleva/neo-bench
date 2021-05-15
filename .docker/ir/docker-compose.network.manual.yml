@@ -1,0 +1,115 @@
+version: '2.4'
+
+networks:
+  neo_go_network:
+    name: neo_go_network
+    ipam:
+      config:
+        - subnet: 172.200.0.0/24
+          gateway: 172.200.0.254
+
+services:
+  node_1:
+    labels:
+      - stats
+    container_name: neo_go_node_1
+    image: registry.nspcc.ru/neo-bench/neo-go:bench
+    logging:
+      driver: "none"
+    command: "node --config-path /config --privnet"
+    healthcheck:
+      interval: 5s
+      retries: 15
+      test: ['CMD', 'sh', '-c', 'echo | nc 127.0.0.1 30333']
+      timeout: 10s
+    environment:
+      - ACC=dump.acc
+    volumes:
+      - ./wallet.one.json:/config/wallet.json
+      - ./go.protocol.privnet.1.yml:/config/protocol.privnet.yml
+
+  node_2:
+    labels:
+      - stats
+    container_name: neo_go_node_2
+    image: registry.nspcc.ru/neo-bench/neo-go:bench
+    logging:
+      driver: "none"
+    command: "node --config-path /config --privnet"
+    healthcheck:
+      interval: 5s
+      retries: 15
+      test: ['CMD', 'sh', '-c', 'echo | nc 127.0.0.1 30334']
+      timeout: 10s
+    environment:
+      - ACC=dump.acc
+    volumes:
+      - ./wallet.two.json:/config/wallet.json
+      - ./go.protocol.privnet.2.yml:/config/protocol.privnet.yml
+
+  node_3:
+    labels:
+      - stats
+    container_name: neo_go_node_3
+    image: registry.nspcc.ru/neo-bench/neo-go:bench
+    logging:
+      driver: "none"
+    command: "node --config-path /config --privnet"
+    healthcheck:
+      interval: 5s
+      retries: 15
+      test: ['CMD', 'sh', '-c', 'echo | nc 127.0.0.1 30335']
+      timeout: 10s
+    environment:
+      - ACC=dump.acc
+    volumes:
+      - ./wallet.three.json:/config/wallet.json
+      - ./go.protocol.privnet.3.yml:/config/protocol.privnet.yml
+
+  node_4:
+    labels:
+      - stats
+    container_name: neo_go_node_4
+    image: registry.nspcc.ru/neo-bench/neo-go:bench
+    logging:
+      driver: "none"
+    command: "node --config-path /config --privnet"
+    healthcheck:
+      interval: 5s
+      retries: 15
+      test: ['CMD', 'sh', '-c', 'echo | nc 127.0.0.1 30336']
+      timeout: 10s
+    environment:
+      - ACC=dump.acc
+    volumes:
+      - ./wallet.four.json:/config/wallet.json
+      - ./go.protocol.privnet.4.yml:/config/protocol.privnet.yml
+  node_5:
+    labels:
+      - stats
+    container_name: neo_go_node_5
+    image: registry.nspcc.ru/neo-bench/neo-go:bench
+    command: "node --config-path /config --privnet"
+    healthcheck:
+      interval: 5s
+      retries: 15
+      test: [ 'CMD', 'sh', '-c', 'echo | nc 127.0.0.1 30337' ]
+      timeout: 10s
+    environment:
+      - ACC=dump.acc
+    volumes:
+      - ./go.protocol.privnet.5.yml:/config/protocol.privnet.yml
+
+  healthy:
+    image: alpine
+    depends_on:
+      node_1:
+        condition: service_healthy
+      node_2:
+        condition: service_healthy
+      node_3:
+        condition: service_healthy
+      node_4:
+        condition: service_healthy
+      node_5:
+        condition: service_healthy

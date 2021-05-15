@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 
 DC_GO_IR=.docker/ir/docker-compose.go.yml
+DC_NETWORK_IR=.docker/ir/docker-compose.network.yml
 DC_GO_RPC=.docker/rpc/docker-compose.go.yml
 
 DC_SINGLE=.docker/rpc/docker-compose.single.yml
@@ -36,7 +37,7 @@ help:
 	@echo ''
 	@awk '/^#/{ comment = substr($$0,3) } comment && /^[a-zA-Z][a-zA-Z0-9_-]+ ?:/{ print "   ", $$1, comment }' $(MAKEFILE_LIST) | column -t -s ':' | grep -v 'IGNORE' | sort | uniq
 
-.PHONY: build push build.node.go build.node.sharp stop start deps config \
+.PHONY: build push build.node.go build.node.sharp stop start deps template config \
 	start.GoSingle10wrk start.GoSingle30wrk start.GoSingle100wrk \
 	start.GoSingle25rate start.GoSingle50rate start.GoSingle60rate start.GoSingle300rate start.GoSingle1000rate \
 	start.GoFourNodes10wrk start.GoFourNodes30wrk start.GoFourNodes100wrk \
@@ -103,8 +104,8 @@ single.sharp: stop
 # Stop all containers
 stop:
 	@echo "=> Stop environment"
-	@docker-compose -f $(DC_GO_IR) -f $(DC_GO_RPC) -f $(DC_GO_IR_SINGLE) -f $(DC_SINGLE) -f $(DC_SHARP_IR) -f $(DC_SHARP_RPC) -f $(DC_SHARP_IR_SINGLE) kill &> /dev/null
-	@docker-compose -f $(DC_GO_IR) -f $(DC_GO_RPC) -f $(DC_GO_IR_SINGLE) -f $(DC_SINGLE) -f $(DC_SHARP_IR) -f $(DC_SHARP_RPC) -f $(DC_SHARP_IR_SINGLE) down --remove-orphans &> /dev/null
+	@docker-compose -f $(DC_GO_IR) -f $(DC_NETWORK_IR) -f $(DC_GO_RPC) -f $(DC_GO_IR_SINGLE) -f $(DC_SINGLE) -f $(DC_SHARP_IR) -f $(DC_SHARP_RPC) -f $(DC_SHARP_IR_SINGLE) kill &> /dev/null
+	@docker-compose -f $(DC_GO_IR) -f $(DC_NETWORK_IR) -f $(DC_GO_RPC) -f $(DC_GO_IR_SINGLE) -f $(DC_SINGLE) -f $(DC_SHARP_IR) -f $(DC_SHARP_RPC) -f $(DC_SHARP_IR_SINGLE) down --remove-orphans &> /dev/null
 
 # Check that all images were built
 check.images:
@@ -150,13 +151,24 @@ $(BUILD_DIR)/dump.acc: deps config cmd/dump/main.go cmd/dump/chain.go
 		&& cd cmd/ \
 		&& go run ./dump -out ../$@
 
+template: deps
+	@echo "=> Generate template for configurations"
+	@set -x \
+		&& cd ./cmd \
+		&& go run ./config/ --data -n 20
+
+compose: deps
+	@echo "=> Generate docker-compose file"
+	@set -x \
+		&& cd ./cmd \
+		&& go run ./config/ --compose -n 20
+
 # Generate configurations for single-node and four-nodes networks from templates
-config: deps
+config: template compose
 	@echo "=> Generate configurations for single-node and four-nodes networks from templates"
 	@set -x \
 		&& cd ./cmd \
-		&& go run ./config/ --go-template go.protocol.template.yml --go-db leveldb --sharp-template sharp.protocol.template.yml --sharp-db LevelDBStore
-
+		&& go run ./config/ --go-template go.protocol.template.yml --go-db leveldb #--sharp-template sharp.protocol.template.yml --sharp-db LevelDBStore
 
 # Generate transactions, dump and nodes configurations for four-nodes network
 prepare: stop gen dump
@@ -175,6 +187,11 @@ start: start.GoSingle10wrk start.GoSingle30wrk start.GoSingle100wrk \
 	start.SharpFourNodes25rate start.SharpFourNodes50rate start.SharpFourNodes60rate start.SharpFourNodes300rate start.SharpFourNodes1000rate \
 	start.SharpFourNodesGoRPC10wrk start.SharpFourNodesGoRPC30wrk start.SharpFourNodesGoRPC100wrk \
 	start.SharpFourNodesGoRPC25rate start.SharpFourNodesGoRPC50rate start.SharpFourNodesGoRPC60rate start.SharpFourNodesGoRPC300rate start.SharpFourNodesGoRPC1000rate
+
+
+start.GoNetwork1wrk: prepare
+	.make/runner.sh -f $(DC_NETWORK_IR) -f $(DC_GO_RPC) -i /dump.txs -d "GoNetwork" -m wrk -w 1 -z 5m -t 30s -a go-node:20331
+	make stop
 
 ## GoSingle:
 #	## Workers:
