@@ -14,7 +14,7 @@ ProtocolConfiguration:
     - #@ "node:{}".format(data.values.nodes_info[i].node_port)
   #@ else:
   MemPoolSize: 50000
-  SecondsPerBlock: 5
+  SecondsPerBlock: 2
   ValidatorsCount: #@ 4
   #! nodes_count - 2
   StandbyCommittee:
@@ -54,8 +54,9 @@ ApplicationConfiguration:
   ProtoTickInterval: 2
   PingInterval: 30
   PingTimeout: 90
-  MaxPeers: 5
+  MaxPeers: 4
   AttemptConnPeers: 5
+  BlocksLogPath: "/logs/"
   #@ if data.values.nodes_info[i].node_name == "single":
   MinPeers: 0
   #@ else:

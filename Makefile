@@ -155,13 +155,13 @@ template: deps
 	@echo "=> Generate template for configurations"
 	@set -x \
 		&& cd ./cmd \
-		&& go run ./config/ --data -n 20
+		&& go run ./config/ --data -n 25
 
 compose: deps
 	@echo "=> Generate docker-compose file"
 	@set -x \
 		&& cd ./cmd \
-		&& go run ./config/ --compose -n 20
+		&& go run ./config/ --compose -n 25
 
 # Generate configurations for single-node and four-nodes networks from templates
 config: template compose

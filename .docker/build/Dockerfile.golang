@@ -6,7 +6,7 @@ WORKDIR /neo-go
 # Install deps:
 RUN apk add --no-cache git
 
-ARG REV="a727ba75c6dcc04d45c63774f86f12ba1cd6a13a"
+ARG REV="611b6483f860285022b268b7e8414062096bba7a"
 ARG REPO="github.com/AnnaShaleva/neo-go"
 
 # Clone and build repo:
