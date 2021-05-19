@@ -12,6 +12,7 @@ vendor
 .docker/rpc/sharp.*.json
 .docker/build/*.acc
 .docker/ir/logs/*
-!.docker/ir/logs/.gitkeep
+.docker/ir/logs_network_utilisation/*
 .docker/ir/docker-compose.network.yml
 .docker/ir/template.data.yml
+/img

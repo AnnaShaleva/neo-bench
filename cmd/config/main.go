@@ -331,6 +331,7 @@ func generateCompose(n int) error {
 			Volumes: []string{
 				fmt.Sprintf("./go.protocol.privnet.%d.yml:/config/protocol.privnet.yml", i+1),
 				"./logs/:/logs/",
+				"./logs_network_utilisation/:/logs_utilisation/",
 			},
 		}
 		if i == 0 || i == 4 || i == 9 || i == 19 || i == 29 || i == 49 || i == 74 || i == 99 {
