@@ -86,7 +86,7 @@ func NewStats(ctx context.Context, opts ...StatOption) (DockerStater, error) {
 		opts[i](p)
 	}
 
-	cli, err := client.NewClientWithOpts(client.WithVersion("1.40")) // version mey need to be downgraded on different hosts
+	cli, err := client.NewClientWithOpts(client.WithVersion("1.39")) // version mey need to be downgraded on different hosts
 	if err != nil {
 		return nil, fmt.Errorf("docker client init: %w", err)
 	}
