@@ -1,6 +1,14 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210518202304-06a82f39ac2e h1:LArqjle1YT2qqdDu6rekUu3019n8ekKMxUmoOfxw9RU=
 github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210518202304-06a82f39ac2e/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520083651-c10ad723e85c h1:uelVFr1o7Fk0Ry52m1GFcDS2yODMU9AKxlfQJdTW9ZA=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520083651-c10ad723e85c/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520090751-ed18c5c67e10 h1:8LVOw5/aUsYPoBGqsSvoqo1xrok+lu5W3KBOOhm+dmw=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520090751-ed18c5c67e10/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520101952-2ae20d08ec60 h1:OFowJil3XGfqHpJNlCN8uC3l9yaZBbKvzsltZAF4e5A=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520101952-2ae20d08ec60/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520145357-33dd1eed2972 h1:cNSusJw0XNT+4OMLNOKlNAy8nfXHWSp2bqoAduIl8xw=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520145357-33dd1eed2972/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78 h1:w+iIsaOQNcT7OZ575w+acHgRric5iCyQh+xv+KJ4HB8=
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78/go.mod h1:LmzpDX56iTiv29bbRTIsUNlaFfuhWRQBWjQdVyAevI8=
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=

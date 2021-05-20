@@ -54,10 +54,11 @@ ApplicationConfiguration:
   ProtoTickInterval: 2
   PingInterval: 30
   PingTimeout: 90
-  MaxPeers: 5
+  MaxPeers: 10
   AttemptConnPeers: 5
   BlocksLogPath: "/logs/"
   UtilisationLogPath: "/logs_utilisation/"
+  SendBlockLatency: 0
   #@ if data.values.nodes_info[i].node_name == "single":
   MinPeers: 0
   #@ else:
