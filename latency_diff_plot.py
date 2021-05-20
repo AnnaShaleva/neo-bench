@@ -11,8 +11,8 @@ firstBlockIndex = 3
 
 def plot_data(path, utilisationPath):
     startIndex = 3
-    count = 100
-    interval = 5_000_000_000  # 5s
+    count = 600
+    interval = 10_000_000_000  # 5s
 
     results = []
     for fName in os.listdir(path):
@@ -42,6 +42,15 @@ def plot_data(path, utilisationPath):
         for block in r[1]:
             blockIndex = block[1] - firstBlockIndex
             fullArr[peerIndex][blockIndex] = block[3]
+
+    # remove files if needed
+    removeFiles = False
+    listToRemove = [20402, 20350]
+    if removeFiles:
+        for l in listToRemove:
+            del (fullArr[l - 20333])
+            peerCount = peerCount-1
+
     # trim right all columns with Null inside (these blocks were not received, usually these are several last blocks)
     columnToRemoveIdx = blockCount + 1
     for i in range(peerCount):
@@ -192,7 +201,7 @@ def plot_data(path, utilisationPath):
     standardMeanY = [b / 1024. / (interval / 1000000000.0) for b in standardMean]
     consensusAVG = statistics.mean(consensusMeanY)
     standardAVG = statistics.mean(standardMeanY)
-    plt.plot(intervals, consensusMeanY, c='blue', label='leader peer', linewidth=0.5)  # KByte
+    plt.plot(intervals, consensusMeanY, c='blue', label='consensus peer', linewidth=0.5)  # KByte
     plt.plot(intervals, [consensusAVG for x in intervals], c='blue', ls="-.", linewidth=0.5)
     plt.plot(intervals, standardMeanY, c='orange', label='regular peer', linewidth=0.5)  # KByte
     plt.plot(intervals, [standardAVG for x in intervals], c='orange', ls="-.", linewidth=0.5)
