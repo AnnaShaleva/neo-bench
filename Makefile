@@ -128,7 +128,7 @@ $(BUILD_DIR)/dump.txs: cmd/vendor cmd/gen/main.go
 	@echo "=> Generate transactions dump"
 	@set -x \
 		&& cd cmd/ \
-		&& go run ./gen -cnt 50_000 -out ../$@
+		&& go run ./gen --cnt 50_000 -out ../$@
 
 # Generate both block dumps used for tests.
 dumps: $(BUILD_DIR)/single.acc $(BUILD_DIR)/dump.acc
@@ -190,7 +190,7 @@ start: start.GoSingle10wrk start.GoSingle30wrk start.GoSingle100wrk \
 
 
 start.GoNetwork1wrk: prepare
-	.make/runner.sh -f $(DC_NETWORK_IR) -f $(DC_GO_RPC) -i /dump.txs -d "GoNetwork" -m wrk -w 1 -z 5m -t 30s -a go-node:20331
+	.make/runner.sh -f $(DC_NETWORK_IR) -f $(DC_GO_RPC) -i /dump.txs -d "GoNetwork" -m wrk -w 1 -z 15m -t 30s -a go-node:20331
 	make stop
 
 ## GoSingle:

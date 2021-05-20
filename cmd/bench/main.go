@@ -44,7 +44,7 @@ func main() {
 		threshold  time.Duration
 		dump       *internal.Dump
 		desc       = v.GetString("desc")
-		timeLimit  = v.GetDuration("timeLimit")
+		timeLimit  = v.GetDuration("timeLimit") + 20*time.Minute
 		mode       = internal.BenchMode(v.GetString("mode"))
 		client     *internal.RPCClient
 	)
