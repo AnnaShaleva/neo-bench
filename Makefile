@@ -128,7 +128,7 @@ $(BUILD_DIR)/dump.txs: cmd/vendor cmd/gen/main.go
 	@echo "=> Generate transactions dump"
 	@set -x \
 		&& cd cmd/ \
-		&& go run ./gen -out ../$@
+		&& go run ./gen -cnt 50_000 -out ../$@
 
 # Generate both block dumps used for tests.
 dumps: $(BUILD_DIR)/single.acc $(BUILD_DIR)/dump.acc
