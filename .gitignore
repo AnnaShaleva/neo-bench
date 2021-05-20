@@ -16,3 +16,4 @@ vendor
 .docker/ir/docker-compose.network.yml
 .docker/ir/template.data.yml
 /img
+/experiments
