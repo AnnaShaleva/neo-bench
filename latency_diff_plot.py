@@ -11,8 +11,9 @@ firstBlockIndex = 3
 
 def plot_data(path, utilisationPath):
     startIndex = 3
-    count = 600
-    interval = 10_000_000_000  # 5s
+    count = 1200
+    interval = 10_000_000_000  # 10s
+    prefix = "original"
 
     results = []
     for fName in os.listdir(path):
@@ -115,7 +116,6 @@ def plot_data(path, utilisationPath):
     plt.xscale('linear')
     plt.xlabel('Time, sec')
     plt.ylabel('Received blocks, out of NBlocks=' + str(blockCount)+' (logit scale)')
-    plt.title('Latency at the peer level using the original gossip module of NeoGo')
 
     y_formatter = ScalarFormatter(useOffset=True)
     plt.gca().yaxis.set_major_formatter(y_formatter)
@@ -123,6 +123,8 @@ def plot_data(path, utilisationPath):
     # `NullFormatter`, to avoid cumbering the axis with too many labels.
     plt.gca().yaxis.set_minor_formatter(NullFormatter())
     plt.legend()
+    plt.savefig('./img/lpl_diff_' + prefix + '.eps')
+    plt.title('Latency at the peer level using the original gossip module of NeoGo')
     # plt.show()
     plt.savefig('./img/lpl_diff' + '.png')
 
@@ -146,7 +148,6 @@ def plot_data(path, utilisationPath):
     plt.xscale('linear')
     plt.xlabel('Time, sec')
     plt.ylabel('Peer that received the block, out of NPeers=' + str(peerCount)+' (logit scale)')
-    plt.title('Latency at the block level using the original gossip module of NeoGo')
 
     y_formatter = ScalarFormatter(useOffset=True)
     plt.gca().yaxis.set_major_formatter(y_formatter)
@@ -154,8 +155,10 @@ def plot_data(path, utilisationPath):
     # `NullFormatter`, to avoid cumbering the axis with too many labels.
     plt.gca().yaxis.set_minor_formatter(NullFormatter())
     plt.legend()
+    plt.savefig('./img/lbl_diff_' + prefix + '.eps')
     # plt.show()
     plt.savefig('./img/lbl_diff' + '.png')
+    plt.title('Latency at the block level using the original gossip module of NeoGo')
 
     # Build Network Utilisation plot
     plt.cla()
@@ -208,9 +211,10 @@ def plot_data(path, utilisationPath):
 
     plt.xlabel('Time, sec')
     plt.ylabel('Network utilization, KB/s')
-    plt.title('Network utilization using the original gossip module of NeoGo')
     plt.legend()
+    plt.savefig('./img/nu_diff_' + prefix + '.eps')
     # plt.show()
+    plt.title('Network utilization using the original gossip module of NeoGo')
     plt.savefig('./img/nu_diff' + '.png')
 
 
