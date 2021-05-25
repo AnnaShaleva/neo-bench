@@ -59,6 +59,7 @@ ApplicationConfiguration:
   BlocksLogPath: "/logs/"
   UtilisationLogPath: "/logs_utilisation/"
   SendBlockLatency: 0
+  Fout: 4
   #@ if data.values.nodes_info[i].node_name == "single":
   MinPeers: 0
   #@ else:

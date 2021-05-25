@@ -13,6 +13,16 @@ github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210521101350-1f294be17cbe h1:qvAmO
 github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210521101350-1f294be17cbe/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
 github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210525161855-a38ab74dad8c h1:YUFSPyHCBlDAgRju6R5iGlbexS+8ThJMSlU2quQ4J7A=
 github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210525161855-a38ab74dad8c/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210525164643-4e387928ca2d h1:Tc6UP0yvtLZDiQ8RxTCSXvZVSIQCO3vWjavJXGzndkA=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210525164643-4e387928ca2d/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210525210942-4306f4fbb8c4 h1:AuWly8ZZLfczcaKy2aDciR22QCGV0bWWIAeGPn9jZlk=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210525210942-4306f4fbb8c4/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210526113558-46482abab248 h1:1qMSmr2GPHJG0szo3EjfYJhan254WjMJIYFd9VDJFuM=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210526113558-46482abab248/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210527084239-753d3251d6b4 h1:1ZsbC/8CyHwkxyZk7/R5D3I3Y6HAM87TrCUanDwOONc=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210527084239-753d3251d6b4/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210527091453-ccde58929ccb h1:tjW6PvQLCwmkUCTouqLCZkSBe7wy0PPr+sCkpTCeaww=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210527091453-ccde58929ccb/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78 h1:w+iIsaOQNcT7OZ575w+acHgRric5iCyQh+xv+KJ4HB8=
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78/go.mod h1:LmzpDX56iTiv29bbRTIsUNlaFfuhWRQBWjQdVyAevI8=
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
