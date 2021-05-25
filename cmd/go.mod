@@ -31,4 +31,4 @@ require (
 
 replace github.com/pkg/errors v0.8.1 => github.com/pkg/errors v0.9.1 // see https://github.com/containerd/containerd/issues/4703#issuecomment-736542317
 
-replace github.com/nspcc-dev/neo-go v0.94.0 => github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210521101350-1f294be17cbe
+replace github.com/nspcc-dev/neo-go v0.94.0 => github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210527093225-f3eaaa88bc2c
