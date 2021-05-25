@@ -11,6 +11,8 @@ github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520145357-33dd1eed2972 h1:cNSus
 github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210520145357-33dd1eed2972/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
 github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210521101350-1f294be17cbe h1:qvAmOjECReT8wu9sw10fiVN39JTWfyLi9KDX1npU58A=
 github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210521101350-1f294be17cbe/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210525161855-a38ab74dad8c h1:YUFSPyHCBlDAgRju6R5iGlbexS+8ThJMSlU2quQ4J7A=
+github.com/AnnaShaleva/neo-go v0.91.1-pre.0.20210525161855-a38ab74dad8c/go.mod h1:IrBT/UG3/Slhqgjge8r6zni5tNRsWmwwG9OnVdASheI=
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78 h1:w+iIsaOQNcT7OZ575w+acHgRric5iCyQh+xv+KJ4HB8=
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78/go.mod h1:LmzpDX56iTiv29bbRTIsUNlaFfuhWRQBWjQdVyAevI8=
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
