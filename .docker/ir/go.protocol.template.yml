@@ -56,6 +56,7 @@ ApplicationConfiguration:
   PingTimeout: 90
   MaxPeers: 10
   AttemptConnPeers: 5
+  TTL: 9
   BlocksLogPath: "/logs/"
   UtilisationLogPath: "/logs_utilisation/"
   SendBlockLatency: 0
